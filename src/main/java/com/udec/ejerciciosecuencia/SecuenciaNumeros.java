@@ -30,7 +30,7 @@ public class SecuenciaNumeros {
         }
         ordenarNumeros();
         identificarFaltantes();
-        imprimirfaltantes();
+        imprimirFaltantes();
         
     }
   
@@ -72,7 +72,7 @@ public class SecuenciaNumeros {
 /**
  * Metodo encargado de imprimir los numeros faltantes de la secuencia
  */
-    private void imprimirfaltantes() {
+    private void imprimirFaltantes() {
         String red="\033[31m";
         System.out.println(red+"Los numeros faltantes de la secuencia son: ");
         System.out.println(faltantes);
