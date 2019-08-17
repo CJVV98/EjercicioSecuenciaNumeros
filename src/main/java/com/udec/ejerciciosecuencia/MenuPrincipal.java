@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.udec.ejerciciosecuencia;
-import java.util.Scanner;
 
 
 /**
@@ -13,16 +12,13 @@ import java.util.Scanner;
  * Clase principal en esta clase se solicitaran los numeros
  */
 public class MenuPrincipal {
-    /**
-     * La variable numeros es un vector que almacena los numeros ingresados
-     */
-    private String numeros[];
+ 
     
     /**
-     * Constructor de la clase MenuPrincipal, en este se llama el metodo llenarVector
+     * Constructor de la clase MenuPrincipal, en este se llama la clase SecuenciaNumeros
      */
     public MenuPrincipal(){
-        llenarVector();
+        SecuenciaNumeros secuencia=new SecuenciaNumeros();
     }
     /**
      * Metodo para inicializar el programa
@@ -32,25 +28,7 @@ public class MenuPrincipal {
         MenuPrincipal menu=new MenuPrincipal();
     }
     
-    /**
-     * Metodo encargado de solicitar los numeros y guardar la informacion en un vector de tipo string
-     */
-    private void llenarVector() {       
-        char continuar='s';
-        String numero;
-        String secuencia="";
-        Scanner ingreso=new Scanner(System.in);       
-        while(continuar=='s'){
-            System.out.println("Ingrese el número:");
-            numero=ingreso.next();
-            numero=numero.concat("/");
-            secuencia=secuencia.concat(numero);
-            System.out.println("Desea registrar mas numeros s/n");
-            continuar=ingreso.next().charAt(0);    
-        }
-        numeros=secuencia.split("/");
-        SecuenciaNumeros claseSecuencia=new SecuenciaNumeros(numeros);                     
-    }
+    
 
 
     

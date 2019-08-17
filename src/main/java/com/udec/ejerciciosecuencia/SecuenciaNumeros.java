@@ -4,26 +4,56 @@
  * and open the template in the editor.
  */
 package com.udec.ejerciciosecuencia;
+import java.util.Scanner;
 
 
 /**
  *
  * @author Corin Viracacha
- * Clase encargada de organizar y definir que elementos hacen falta de la secuencia 
+ * Clase encargada de solicitar la secuencia, organizar los numeros y definir que elementos hacen falta dentro de la secuencia
  */
 public class SecuenciaNumeros {
     /**
      * El vector numeros almacena los numeros, segun la conversion de string a short
      * la variable contador me permite identificar que numeros estan repetidos
      */
-    private final short[] numeros;
+    private short[] numeros;
     private String faltantes;
 
- /**
-  * Este metodo se encarga de la conversion del vector string al vector short
-  * @param datosNumericos, parametro que recibe los numeros en un vector pero de tipo string
-  */
-    public SecuenciaNumeros(String[] datosNumericos) {
+    /**
+     * Constructor de la clase, llamada al metodo llenarVector
+     */
+    
+    public SecuenciaNumeros() {
+       llenarVector();       
+    }
+    
+    /**
+     * Metodo encargado de solicitar los numeros y guardar la informacion en un vector de tipo string
+     */
+    private void llenarVector() {
+        String numerosIngresados[];
+        char continuar='s';
+        String numero;
+        String secuencia="";
+        Scanner ingreso=new Scanner(System.in);       
+        while(continuar=='s'){
+            System.out.println("Ingrese el número:");
+            numero=ingreso.next();
+            numero=numero.concat("/");
+            secuencia=secuencia.concat(numero);
+            System.out.println("Desea registrar mas numeros s/n");
+            continuar=ingreso.next().charAt(0);    
+        }
+        numerosIngresados=secuencia.split("/");   
+        conversionNumeros(numerosIngresados);
+    }  
+    
+    /**
+     * Este metodo se encarga de la conversion del vector string al vector short
+     * @param datosNumericos, parametro que recibe los numeros en un vector tipo string
+     */
+    private void conversionNumeros(String[] datosNumericos){
         numeros=new short[datosNumericos.length];
         for(int i=0;i<datosNumericos.length;i++){  
                numeros[i]=Short.parseShort(datosNumericos[i]);                                   
@@ -31,12 +61,11 @@ public class SecuenciaNumeros {
         ordenarNumeros();
         identificarFaltantes();
         imprimirFaltantes();
-        
     }
-  
-/**
-  * Este metodo organiza los numeros de manera ascendente
-*/
+
+    /**
+     * Este metodo organiza los numeros de manera ascendente, por el metodo burbuja
+     */
     private void ordenarNumeros() {
         short auxiliar;
         for(int i=0;i<numeros.length;i++){
@@ -50,9 +79,9 @@ public class SecuenciaNumeros {
         }
     }
     
-/**
- * Metodo que se encarga de identificar los faltantes
- */
+    /**
+     * Metodo que se encarga de identificar los faltantes de la secuencia
+     */
     private void identificarFaltantes() { 
         faltantes="Rpt: ";
         short contador;
@@ -66,18 +95,15 @@ public class SecuenciaNumeros {
             if(contador==0){               
                 faltantes=faltantes.concat(" / "+String.valueOf(i));                
             }            
-        }
-        
+        }        
     }
-/**
- * Metodo encargado de imprimir los numeros faltantes de la secuencia
- */
+    /**
+     * Metodo encargado de imprimir los numeros faltantes de la secuencia
+     */
     private void imprimirFaltantes() {
         String red="\033[31m";
         System.out.println(red+"Los numeros faltantes de la secuencia son: ");
-        System.out.println(faltantes);
-
-    
+        System.out.println(faltantes);   
     }
     
     
