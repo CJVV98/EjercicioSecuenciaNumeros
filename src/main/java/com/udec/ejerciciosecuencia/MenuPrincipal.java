@@ -14,10 +14,8 @@ import java.util.Scanner;
  */
 public class MenuPrincipal {
     /**
-     * La variable ingreso es para la lectura de los datos
-     * El variable numeros es un vector que almacena los numeros ingresados
+     * La variable numeros es un vector que almacena los numeros ingresados
      */
-    Scanner ingreso;  
     private String numeros[];
     
     /**
@@ -41,7 +39,7 @@ public class MenuPrincipal {
         char continuar='s';
         String numero;
         String secuencia="";
-        ingreso=new Scanner(System.in);       
+        Scanner ingreso=new Scanner(System.in);       
         while(continuar=='s'){
             System.out.println("Ingrese el número:");
             numero=ingreso.next();
