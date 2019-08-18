@@ -9,7 +9,7 @@ package com.udec.ejerciciosecuencia;
 /**
  *
  * @author Corin Viracachá
- * Clase principal en esta clase se solicitaran los numeros
+ * Clase principal
  */
 public class MenuPrincipal {
  
